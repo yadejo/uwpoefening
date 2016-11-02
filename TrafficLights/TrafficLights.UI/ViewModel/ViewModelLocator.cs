@@ -25,17 +25,22 @@ namespace TrafficLights.UI.ViewModel {
                 // Create run time view services and models
                 //SimpleIoc.Default.Register<IDataService,DataService>();
 
-
-               SimpleIoc.Default.Register<ITrafficLightService,TrafficLightService>();
+                SimpleIoc.Default.Register<ITrafficLightService,TrafficLightService>();
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
-         //    SimpleIoc.Default.Register<InventoryViewModel>();
+            SimpleIoc.Default.Register<TrafficLightDetailViewModel>();
         }
 
         public MainViewModel MainViewModel {
             get {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public TrafficLightDetailViewModel TrafficLightDetailViewModel {
+            get {
+                return ServiceLocator.Current.GetInstance<TrafficLightDetailViewModel>();
             }
         }
 

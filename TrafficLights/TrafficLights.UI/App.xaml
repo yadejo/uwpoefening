@@ -2,6 +2,7 @@
     x:Class="TrafficLights.UI.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:TrafficLights.UI.Converters"
     xmlns:local="using:TrafficLights.UI"
     RequestedTheme="Light">
 
@@ -9,7 +10,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <vm:ViewModelLocator xmlns:vm="using:TrafficLights.UI.ViewModel" x:Key="Locator" />
-
+            <converters:BooleanToNullableConverter x:Key="BooleanToNullableConverter" />
         </ResourceDictionary>
     </Application.Resources>
 
