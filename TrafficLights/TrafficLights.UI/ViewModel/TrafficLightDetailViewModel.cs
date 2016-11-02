@@ -112,8 +112,7 @@ namespace TrafficLights.UI.ViewModel {
             }
 
             //Set TrafficLight
-
-            this.TrafficLight = _trafficLightService.GetTrafficLightById(Guid.NewGuid());
+            TrafficLight = _trafficLightService.GetTrafficLightById(Guid.NewGuid());
 
         }
 
