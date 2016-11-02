@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
 using System;
 using System.Collections.Generic;
@@ -22,10 +23,7 @@ namespace TrafficLights.UI.ViewModel
 
         private void AddNewCluster()
         {
-            //Cluster.ClusterId = Guid.NewGuid();
-            //Cluster.TempTrafficLights = new System.Collections.ObjectModel.ObservableCollection<TemporaryTrafficLight>();
-            //Cluster.TrafficLights = new System.Collections.ObjectModel.ObservableCollection<TrafficLight>();
-            _trafficLightService.CreateCluster(NewCluster);
+            Messenger.Default.Send<Cluster>(NewCluster);
             _navigationService.NavigateTo("Overview");
         }
 
@@ -43,7 +41,7 @@ namespace TrafficLights.UI.ViewModel
             _navigationService = navigationService;
             NewCluster = new Cluster();
             NewCluster.ClusterId = Guid.NewGuid();
-            NewCluster.Location = "Location";
+            NewCluster.Location = "";
             NewCluster.TempTrafficLights = new System.Collections.ObjectModel.ObservableCollection<TemporaryTrafficLight>();
             NewCluster.TrafficLights = new System.Collections.ObjectModel.ObservableCollection<TrafficLight>();
         }

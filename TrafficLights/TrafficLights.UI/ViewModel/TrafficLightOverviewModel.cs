@@ -14,6 +14,7 @@ using TrafficLights.UI.View;
 using TrafficLights.UI.Services;
 using GalaSoft.MvvmLight.Views;
 using TrafficLights.UI.Messages;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace TrafficLights.UI.ViewModel {
 
@@ -60,6 +61,8 @@ namespace TrafficLights.UI.ViewModel {
             _navigationService = navigationService;
 
             InitializeProperties();
+            Messenger.Default.Register<Cluster>(this, addnewMessagingCluster);
+
 
         }
 
@@ -75,6 +78,11 @@ namespace TrafficLights.UI.ViewModel {
         }
         public void AddNewCluster() {
             _navigationService.NavigateTo("CreateCluster");
+        }
+
+        public void addnewMessagingCluster(Cluster c) {
+            _trafficService.CreateCluster(c);
+            InitializeProperties();
         }
     }
 }
