@@ -12,9 +12,11 @@ namespace TrafficLights.UI.Services {
 
         TrafficLight UpdateTrafficLight( TrafficLight trafficLight );
 
-        void DeleteTrafficLight(Guid trafficLightId);
+        void DeleteTrafficLight( Guid trafficLightId );
 
-        TrafficLight InsertTrafficLight(TrafficLight trafficLight);
+        TrafficLight InsertTrafficLight(Guid clusterId,TrafficLight trafficLight);
+
+        IEnumerable<Cluster> GetAllClusters();
 
     }
 }

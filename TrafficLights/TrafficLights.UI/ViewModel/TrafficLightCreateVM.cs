@@ -41,7 +41,7 @@ namespace TrafficLights.UI.ViewModel
 
         private void AddTrafficLight()
         {
-            _trafficLightService.InsertTrafficLight(_newTrafficLight);
+            _trafficLightService.InsertTrafficLight(Guid.NewGuid(),_newTrafficLight);
         }
 
         private TrafficLight _newTrafficLight;
