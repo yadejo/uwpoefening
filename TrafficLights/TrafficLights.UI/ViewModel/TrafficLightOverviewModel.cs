@@ -12,7 +12,7 @@ using TrafficLights.UI.Model;
 using TrafficLights.UI.View;
 
 using TrafficLights.UI.Services;
-
+using GalaSoft.MvvmLight.Views;
 
 namespace TrafficLights.UI.ViewModel {
 
@@ -34,20 +34,12 @@ namespace TrafficLights.UI.ViewModel {
             get { return _clusters; }
             set { Set(ref _clusters,value); }
         }
-
-        //public TrafficLightOverviewModel()
-        //{
-        //    Clusters = new ObservableCollection<Cluster>();
-        //    List<TrafficLight> newtrafficLights = new List<TrafficLight>();
-        //    newtrafficLights.Add(new TrafficLight { TrafficLightId = Guid.NewGuid(), ActivatedOn = DateTime.Now, Direction = Direction.East, Placed = true, PlacedOn = DateTime.Now, Status = TrafficLightStatus.Active, TimeGreen = 25, TimeOrange = 5, TimeRed = 25 });
-        //    newtrafficLights.Add(new TrafficLight { TrafficLightId = Guid.NewGuid(), ActivatedOn = DateTime.Now, Direction = Direction.East, Placed = true, PlacedOn = DateTime.Now, Status = TrafficLightStatus.Active, TimeGreen = 25, TimeOrange = 5, TimeRed = 25 });
-        //    Clusters.Add(new Cluster { ClusterId = Guid.NewGuid(), Location = "Test", TrafficLights = new ObservableCollection<TrafficLight>(newtrafficLights) });
-
-        //}
         private readonly ITrafficLightService _trafficService;
-        public TrafficLightOverviewModel( ITrafficLightService trafficService ) {
+        private INavigationService _navigationService;
+        public TrafficLightOverviewModel( ITrafficLightService trafficService, INavigationService navigationService ) {
 
             _trafficService = trafficService;
+            _navigationService = navigationService;
 
             InitializeProperties();
 
@@ -59,13 +51,12 @@ namespace TrafficLights.UI.ViewModel {
         }
 
         public void AddTrafficLightWithCluster() {
-            TrafficLightCreatePage createTL = new TrafficLightCreatePage();
+
+            _navigationService.NavigateTo("Create");
             
-            //Traf newProject = new AddProject();
-            //newProject.Show();
         }
         public void AddNewTrafficLight() {
-
+            _navigationService.NavigateTo("Create");
         }
     }
 }

@@ -24,7 +24,7 @@
                 <DataTemplate x:DataType="model:Cluster">
                     <StackPanel>
                         <TextBlock Text="{x:Bind Location}" />
-                        <Button Command="{Binding TrafficLightOverviewViewModel.Test, Source={StaticResource Locator}}" Content="Add TrafficLight to this Cluster" />
+                        <Button Command="{Binding TrafficLightOverviewViewModel.AddTrafficLightToCluster, Source={StaticResource Locator}}" Content="Add TrafficLight to this Cluster" />
                         <ListBox ItemsSource="{x:Bind TrafficLights}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate x:DataType="model:TrafficLight">

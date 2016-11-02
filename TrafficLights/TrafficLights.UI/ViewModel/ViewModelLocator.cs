@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrafficLights.UI.Services;
+using TrafficLights.UI.View;
 
 namespace TrafficLights.UI.ViewModel {
     public class ViewModelLocator {
@@ -67,7 +68,7 @@ namespace TrafficLights.UI.ViewModel {
         private INavigationService CreateNavigationService()
         {
             var navigationService = new NavigationService();
-            navigationService.Configure("Create", typeof(TrafficLightCreateVM));
+            navigationService.Configure("Create", typeof(TrafficLightCreatePage));
             return navigationService;
         }
         public static void Cleanup() {
