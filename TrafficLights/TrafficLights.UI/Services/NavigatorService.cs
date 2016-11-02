@@ -17,6 +17,8 @@ namespace TrafficLights.UI.Services
             navigationService.Configure("Create", typeof(TrafficLightCreatePage));
             navigationService.Configure("Overview", typeof(TrafficLightOverviewPage));
             navigationService.Configure("Detail", typeof(TrafficLightDetailPage));
+            //navigationService.Configure("CreateCluster", typeof(CreateClusterPage));
+            //navigationService.Configure()
             return navigationService;
         }
     }
