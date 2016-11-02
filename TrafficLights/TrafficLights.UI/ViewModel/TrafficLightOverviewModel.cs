@@ -69,8 +69,8 @@ namespace TrafficLights.UI.ViewModel {
             _navigationService.NavigateTo("Create");
             
         }
-        public void AddNewTrafficLight() {
-            _navigationService.NavigateTo("Create");
+        public void AddNewCluster() {
+            _navigationService.NavigateTo("CreateCluster");
         }
     }
 }

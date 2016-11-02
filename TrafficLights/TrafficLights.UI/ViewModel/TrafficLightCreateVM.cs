@@ -15,13 +15,12 @@ namespace TrafficLights.UI.ViewModel
     {
         private readonly ITrafficLightService _trafficLightService;
         private INavigationService _navigationService;
-
         private Guid _clusterId;
-
         public TrafficLightCreateVM(ITrafficLightService trafficLightService, INavigationService navigationService)
         {
             _trafficLightService = trafficLightService;
             _navigationService = navigationService;
+
             _newTrafficLight = new TrafficLight();
             _directions = new Dictionary<Direction, string>();
             foreach (var d in Enum.GetValues(typeof(Direction)))
@@ -47,7 +46,6 @@ namespace TrafficLights.UI.ViewModel
         {
             if (_newTrafficLight.Placed) _newTrafficLight.PlacedOn = DateTimeOffset.Now;
             _trafficLightService.InsertTrafficLight(this._clusterId,_newTrafficLight);
-
             _navigationService.NavigateTo("Overview");
         }
 

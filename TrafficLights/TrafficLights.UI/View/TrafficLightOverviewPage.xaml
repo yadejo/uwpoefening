@@ -16,8 +16,8 @@
         </Grid.RowDefinitions>
         <Button
             Grid.Row="0"
-            Command="{x:Bind VM.AddTrafficLight}"
-            Content="Add TrafficLight" />
+            Command="{x:Bind VM.AddCluster}"
+            Content="Add Cluster" />
 
         <ListBox Grid.Row="1" ItemsSource="{x:Bind VM.Clusters}">
             <ListBox.ItemTemplate>
@@ -39,6 +39,19 @@
                                             <TextBlock Text="{x:Bind ActivatedOn}" />
                                         </StackPanel>
                                     </Button>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <ListBox ItemsSource="{x:Bind TempTrafficLights}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate x:DataType="model:TemporaryTrafficLight">
+                                    <StackPanel>
+                                        <TextBlock Text="{x:Bind Status}" />
+                                        <TextBlock Text="{x:Bind Direction}" />
+                                        <TextBlock Text="{x:Bind Placed}" />
+                                        <TextBlock Text="{x:Bind EndDate}" />
+                                    </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>

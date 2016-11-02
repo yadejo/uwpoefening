@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,7 @@ namespace TrafficLights.UI.ViewModel {
 
         #region Services
         private readonly ITrafficLightService _trafficLightService;
+        private INavigationService _navigationService;
         #endregion
 
         #region Bindable Properties
@@ -76,8 +78,9 @@ namespace TrafficLights.UI.ViewModel {
         #endregion
 
 
-        public TrafficLightDetailViewModel( ITrafficLightService trafficLightService ) {
+        public TrafficLightDetailViewModel( ITrafficLightService trafficLightService, INavigationService navigationService ) {
             _trafficLightService = trafficLightService;
+            _navigationService = navigationService;
 
             InitializeProperties();
             InitializeCommands();

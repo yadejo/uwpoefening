@@ -10,13 +10,35 @@ namespace TrafficLights.UI.Services {
     public class TrafficLightService : ITrafficLightService {
 
         private readonly ICollection<Cluster> _clusters;
-
-
+        private readonly ICollection<Maintenance> _maintenances;
 
         public TrafficLightService() {
             _clusters = new List<Cluster>();
-            
+            _maintenances = new List<Maintenance>();
 
+            AddFakeClusters();
+            AddFakeMaintenances();
+        }
+
+        private void AddFakeMaintenances() {
+            var tl = _clusters.FirstOrDefault().TrafficLights.FirstOrDefault();
+
+            var mtn = new Maintenance {
+
+                Date = DateTime.Now,
+                Description = "Lorem ipsum...",
+                MaintenanceId = Guid.NewGuid(),
+                Price = 10,
+                Reason = "Reason blablabla",
+                TrafficLightId = tl.TrafficLightId
+
+            };
+
+            _maintenances.Add(mtn);
+
+        }
+
+        private void AddFakeClusters() {
 
             var cluster1 = new Cluster {
                 ClusterId = Guid.NewGuid(),
@@ -25,15 +47,15 @@ namespace TrafficLights.UI.Services {
                 TempTrafficLights = new ObservableCollection<TemporaryTrafficLight>()
             };
 
-            for(int i=0 ;i<4 ; i++) {
+            for(int i = 0 ; i < 2 ; i++) {
                 cluster1.TrafficLights.Add(new TrafficLight {
                     ActivatedOn = DateTime.Now,
                     Placed = true,
                     Direction = Direction.East,
-                    TimeGreen = 10+i,
-                    TimeOrange = 10+i,
-                    TimeRed = 10+i,
-                    PlacedOn = DateTime.Now.AddDays(-10+i),
+                    TimeGreen = 10 + i,
+                    TimeOrange = 10 + i,
+                    TimeRed = 10 + i,
+                    PlacedOn = DateTime.Now.AddDays(-10 + i),
                     Status = TrafficLightStatus.Active,
                     TrafficLightId = Guid.NewGuid()
                 });
@@ -47,7 +69,7 @@ namespace TrafficLights.UI.Services {
                 TempTrafficLights = new ObservableCollection<TemporaryTrafficLight>()
             };
 
-            for(int i = 0 ; i < 4 ; i++) {
+            for(int i = 0 ; i < 3 ; i++) {
                 cluster1.TrafficLights.Add(new TrafficLight {
                     ActivatedOn = DateTime.Now,
                     Placed = true,
@@ -55,7 +77,7 @@ namespace TrafficLights.UI.Services {
                     TimeGreen = 10,
                     TimeOrange = 10,
                     TimeRed = 10,
-                    PlacedOn = DateTime.Now.AddDays(-10+i),
+                    PlacedOn = DateTime.Now.AddDays(-10 + i),
                     Status = TrafficLightStatus.Active,
                     TrafficLightId = Guid.NewGuid()
                 });
@@ -63,6 +85,13 @@ namespace TrafficLights.UI.Services {
 
             _clusters.Add(cluster1);
             _clusters.Add(cluster2);
+        }
+
+        public Maintenance CreateMaintenance( Maintenance maintenance ) {
+
+            maintenance.MaintenanceId = Guid.NewGuid();
+            _maintenances.Add(maintenance);
+            return maintenance;
 
         }
 
@@ -78,6 +107,10 @@ namespace TrafficLights.UI.Services {
             return _clusters.ToList();
         }
 
+        public IEnumerable<Maintenance> GetMaintenancesByTrafficLightId( Guid trafficLightId ) {
+            return _maintenances.Where(mtn => mtn.TrafficLightId == trafficLightId);
+        }
+
         public TrafficLight GetTrafficLightById( Guid trafficLightId ) {
 
             return _clusters.SelectMany(c => c.TrafficLights).FirstOrDefault(tl => tl.TrafficLightId == trafficLightId);
@@ -91,8 +124,8 @@ namespace TrafficLights.UI.Services {
             return trafficLight;
         }
 
-        public TrafficLight InsertTrafficLight(Guid clusterId,TrafficLight trafficLight)
-        {
+        public TrafficLight InsertTrafficLight(Guid clusterId,TrafficLight trafficLight ) { 
+
             var cluster = _clusters.FirstOrDefault(c => c.ClusterId == clusterId);
             cluster.TrafficLights.Add(trafficLight);
             return trafficLight;
@@ -100,7 +133,7 @@ namespace TrafficLights.UI.Services {
 
         public TrafficLight UpdateTrafficLight( TrafficLight updatedTrafficLight ) {
 
-          var tlStorage=  _clusters.SelectMany(c => c.TrafficLights).FirstOrDefault(tlInDb => tlInDb.TrafficLightId == updatedTrafficLight.TrafficLightId);
+            var tlStorage = _clusters.SelectMany(c => c.TrafficLights).FirstOrDefault(tlInDb => tlInDb.TrafficLightId == updatedTrafficLight.TrafficLightId);
 
             tlStorage.Direction = updatedTrafficLight.Direction;
             tlStorage.Status = updatedTrafficLight.Status;
