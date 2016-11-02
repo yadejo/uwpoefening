@@ -12,6 +12,10 @@ namespace TrafficLights.UI.Services {
 
         TrafficLight UpdateTrafficLight( TrafficLight trafficLight );
 
+        Maintenance CreateMaintenance(Maintenance maintenance );
+
+        IEnumerable<Maintenance> GetMaintenancesByTrafficLightId( Guid trafficLightId );
+
         void DeleteTrafficLight( Guid trafficLightId );
 
         TrafficLight InsertTrafficLight(Guid clusterId,TrafficLight trafficLight);

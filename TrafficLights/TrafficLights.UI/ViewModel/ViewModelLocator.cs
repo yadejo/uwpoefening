@@ -33,11 +33,24 @@ namespace TrafficLights.UI.ViewModel {
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 
             SimpleIoc.Default.Register<TrafficLightOverviewModel>();
+
+            SimpleIoc.Default.Register<TrafficLightDetailViewModel>();
+            SimpleIoc.Default.Register<TrafficLightCreateVM>();
+            SimpleIoc.Default.Register<MaintenanceCreateViewModel>();
+
          
             SimpleIoc.Default.Register<TrafficLightDetailViewModel>();
             SimpleIoc.Default.Register<TrafficLightCreateVM>();
             SimpleIoc.Default.Register<TempTrafficLightCreateVM>();
+
         }
+
+        public MaintenanceCreateViewModel MaintenanceCreateViewModel {
+            get {
+                return ServiceLocator.Current.GetInstance<MaintenanceCreateViewModel>();
+            }
+        }
+
 
         public TrafficLightOverviewModel TrafficLightOverviewViewModel {
             get {

@@ -108,11 +108,15 @@
     <Compile Include="Model\TrafficLight.cs" />
     <Compile Include="Services\ITrafficLightService.cs" />
     <Compile Include="Services\TrafficLightService.cs" />
+    <Compile Include="ViewModel\MaintenanceCreateViewModel.cs" />
     <Compile Include="ViewModel\TempTrafficLightCreateVM.cs" />
     <Compile Include="ViewModel\TrafficLightOverviewModel.cs" />
     <Compile Include="ViewModel\TrafficLightCreateVM.cs" />
     <Compile Include="ViewModel\TrafficLightDetailViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\MaintenanceCreatePage.xaml.cs">
+      <DependentUpon>MaintenanceCreatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TrafficLightCreatePage.xaml.cs">
       <DependentUpon>TrafficLightCreatePage.xaml</DependentUpon>
     </Compile>
@@ -148,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\MaintenanceCreatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\TrafficLightCreatePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
