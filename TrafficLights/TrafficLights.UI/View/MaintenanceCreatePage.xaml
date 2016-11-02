@@ -14,8 +14,27 @@
         <ScrollViewer>
             <StackPanel>
 
+                <TextBlock>Datum</TextBlock>
+
+                <DatePicker HorizontalAlignment="Stretch" Date="{Binding Maintenance.Date, Mode=TwoWay}" />
+
                 <TextBlock>Reason</TextBlock>
-                <TextBox Text="{x:Bind VM.Maintenance.Reason, Mode=TwoWay}" />
+                <TextBox
+                    Height="70"
+                    AcceptsReturn="True"
+                    Text="{x:Bind VM.Maintenance.Reason, Mode=TwoWay}"
+                    TextWrapping="Wrap" />
+
+                <TextBlock>Description</TextBlock>
+                <TextBox
+                    Height="70"
+                    AcceptsReturn="True"
+                    Text="{x:Bind VM.Maintenance.Description, Mode=TwoWay}"
+                    TextWrapping="Wrap" />
+
+
+                <TextBlock>Price</TextBlock>
+                <TextBox Text="{x:Bind VM.Maintenance.Price, Mode=TwoWay, Converter={StaticResource DecimalToStringConverter}}" />
 
                 <Button Command="{x:Bind VM.SaveCommand}">
                     Save Maintenance

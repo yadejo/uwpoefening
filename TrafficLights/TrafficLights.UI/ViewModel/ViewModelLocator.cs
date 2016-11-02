@@ -34,14 +34,11 @@ namespace TrafficLights.UI.ViewModel {
 
             SimpleIoc.Default.Register<TrafficLightOverviewModel>();
 
-            SimpleIoc.Default.Register<TrafficLightDetailViewModel>();
-            SimpleIoc.Default.Register<TrafficLightCreateVM>();
-            SimpleIoc.Default.Register<MaintenanceCreateViewModel>();
+            SimpleIoc.Default.Register<TrafficLightDetailViewModel>(true);
+            SimpleIoc.Default.Register<TrafficLightCreateVM>(true);
+            SimpleIoc.Default.Register<MaintenanceCreateViewModel>(true);
+            SimpleIoc.Default.Register<TempTrafficLightCreateVM>(true);
 
-         
-            SimpleIoc.Default.Register<TrafficLightDetailViewModel>();
-            SimpleIoc.Default.Register<TrafficLightCreateVM>();
-            SimpleIoc.Default.Register<TempTrafficLightCreateVM>();
 
         }
 

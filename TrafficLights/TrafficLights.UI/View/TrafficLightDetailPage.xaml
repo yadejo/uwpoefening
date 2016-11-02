@@ -51,6 +51,17 @@
                     SelectedItem="{Binding TrafficLight.Direction, Mode=TwoWay}" />
 
 
+                <TextBlock>Maintenances</TextBlock>
+                <ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding Datum}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
                 <Button Command="{x:Bind VM.SaveChangesCommand, Mode=OneWay}">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Save" />
