@@ -12,6 +12,10 @@ namespace TrafficLights.UI.Services {
                 
         }
 
+        public void DeleteTrafficLight( Guid trafficLightId ) {
+            
+        }
+
         public TrafficLight GetTrafficLightById( Guid trafficLightId ) {
             return new TrafficLight {
                 ActivatedOn = DateTime.Now,

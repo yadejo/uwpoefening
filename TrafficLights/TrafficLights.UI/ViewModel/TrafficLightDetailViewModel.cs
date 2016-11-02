@@ -25,8 +25,13 @@ namespace TrafficLights.UI.ViewModel {
 
                 Set(ref _trafficLight,value);
 
-                //_trafficLight.Status = TrafficLightStatuses.FirstOrDefault(s => s.ToString() == _trafficLight.Status.ToString());
-                //_trafficLight.Direction = Directions.FirstOrDefault(s => s.ToString() == _trafficLight.Direction.ToString());
+                if(TrafficLightStatuses != null) {
+                    _trafficLight.Status = TrafficLightStatuses.FirstOrDefault(s => s.ToString() == _trafficLight.Status.ToString());
+                }
+
+                if(Directions != null) {
+                    _trafficLight.Direction = Directions.FirstOrDefault(s => s.ToString() == _trafficLight.Direction.ToString());
+                }
             }
         }
 
@@ -55,6 +60,14 @@ namespace TrafficLights.UI.ViewModel {
         }
 
 
+        private RelayCommand _deleteCommand;
+
+        public RelayCommand DeleteCommand {
+            get { return _deleteCommand; }
+            set { Set(ref _deleteCommand,value); }
+        }
+
+
         #endregion
 
 
@@ -69,12 +82,12 @@ namespace TrafficLights.UI.ViewModel {
 
         private void InitializeCommands() {
 
-            SaveChangesCommand = new RelayCommand(SaveChanges);
-
+            SaveChangesCommand = new RelayCommand(Delete);
+            DeleteCommand = new RelayCommand(Delete);
         }
 
-        private void SaveChanges() {
-            _trafficLightService.UpdateTrafficLight(TrafficLight);
+        private void Delete() {
+            _trafficLightService.DeleteTrafficLight(TrafficLight.TrafficLightId);
         }
 
         private void InitializeProperties() {
