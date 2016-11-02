@@ -95,7 +95,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Cluster.cs" />
+    <Compile Include="Model\Direction.cs" />
+    <Compile Include="Model\Maintenance.cs" />
+    <Compile Include="Model\TemporaryTrafficLight.cs" />
     <Compile Include="Model\TrafficLight.cs" />
+    <Compile Include="Services\ITrafficLightService.cs" />
+    <Compile Include="Services\TrafficLightService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\MainPage.xaml.cs">
@@ -129,9 +135,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
