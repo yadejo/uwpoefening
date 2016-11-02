@@ -31,6 +31,11 @@ namespace TrafficLights.UI.Services {
 
         }
 
+        public TrafficLight InsertTrafficLight(TrafficLight trafficLight)
+        {
+            return trafficLight;
+        }
+
         public TrafficLight UpdateTrafficLight( TrafficLight trafficLight ) {
             return trafficLight;
         }

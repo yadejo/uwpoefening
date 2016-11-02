@@ -24,11 +24,11 @@ namespace TrafficLights.UI.View
     public sealed partial class MainPage : Page
     {
 
-        public MainViewModel VM { get; set; }
+        public TrafficLightOverviewModel VM { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
-            VM = (MainViewModel) DataContext;
+            VM = (TrafficLightOverviewModel) DataContext;
         }
     }
 }

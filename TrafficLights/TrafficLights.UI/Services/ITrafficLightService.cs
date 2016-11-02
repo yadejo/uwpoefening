@@ -14,5 +14,7 @@ namespace TrafficLights.UI.Services {
 
         void DeleteTrafficLight(Guid trafficLightId)
 
+        TrafficLight InsertTrafficLight(TrafficLight trafficLight);
+
     }
 }
