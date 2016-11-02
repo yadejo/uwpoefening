@@ -97,6 +97,8 @@
     </Compile>
     <Compile Include="Converters\BooleanToNullableConverter.cs" />
     <Compile Include="Converters\IntToStringConverter.cs" />
+    <Compile Include="Converters\StatusToColorConverter.cs" />
+    <Compile Include="Messages\ClusterGuidMessage.cs" />
     <Compile Include="Model\Cluster.cs" />
     <Compile Include="Model\Direction.cs" />
     <Compile Include="Model\Maintenance.cs" />
