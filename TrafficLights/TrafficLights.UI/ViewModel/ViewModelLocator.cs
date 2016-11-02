@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace TrafficLights.UI.ViewModel {
 
                 SimpleIoc.Default.Register<ITrafficLightService,TrafficLightService>();
             }
+            var navigationService = this.CreateNavigationService();
+            SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 
             SimpleIoc.Default.Register<TrafficLightOverviewModel>();
          
@@ -61,7 +64,12 @@ namespace TrafficLights.UI.ViewModel {
                 return ServiceLocator.Current.GetInstance<TrafficLightDetailViewModel>();
             }
         }
-
+        private INavigationService CreateNavigationService()
+        {
+            var navigationService = new NavigationService();
+            navigationService.Configure("Create", typeof(TrafficLightCreateVM));
+            return navigationService;
+        }
         public static void Cleanup() {
             // TODO Clear the ViewModels
         }

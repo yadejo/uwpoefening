@@ -75,10 +75,6 @@ namespace TrafficLights.UI.Model {
             set { Set(ref _direction,value); }
         }
 
-       
-
-
-
     }
 
     public enum TrafficLightStatus {
