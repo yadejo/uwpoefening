@@ -35,14 +35,15 @@ namespace TrafficLights.UI.ViewModel {
             set { Set(ref _clusters,value); }
         }
 
-        public TrafficLightOverviewModel() {
-            Clusters = new ObservableCollection<Cluster>();
-            List<TrafficLight> newtrafficLights = new List<TrafficLight>();
-            newtrafficLights.Add(new TrafficLight { TrafficLightId=Guid.NewGuid(), ActivatedOn = DateTime.Now, Direction = Direction.East, Placed = true, PlacedOn = DateTime.Now, Status = TrafficLightStatus.Active, TimeGreen = 25, TimeOrange = 5, TimeRed = 25 });
-            newtrafficLights.Add(new TrafficLight { TrafficLightId=Guid.NewGuid(), ActivatedOn = DateTime.Now, Direction = Direction.East, Placed = true, PlacedOn = DateTime.Now, Status = TrafficLightStatus.Active, TimeGreen = 25, TimeOrange = 5, TimeRed = 25 });
-            Clusters.Add(new Cluster { ClusterId = Guid.NewGuid(), Location = "Test", TrafficLights = new ObservableCollection<TrafficLight>(newtrafficLights) });
+        //public TrafficLightOverviewModel()
+        //{
+        //    Clusters = new ObservableCollection<Cluster>();
+        //    List<TrafficLight> newtrafficLights = new List<TrafficLight>();
+        //    newtrafficLights.Add(new TrafficLight { TrafficLightId = Guid.NewGuid(), ActivatedOn = DateTime.Now, Direction = Direction.East, Placed = true, PlacedOn = DateTime.Now, Status = TrafficLightStatus.Active, TimeGreen = 25, TimeOrange = 5, TimeRed = 25 });
+        //    newtrafficLights.Add(new TrafficLight { TrafficLightId = Guid.NewGuid(), ActivatedOn = DateTime.Now, Direction = Direction.East, Placed = true, PlacedOn = DateTime.Now, Status = TrafficLightStatus.Active, TimeGreen = 25, TimeOrange = 5, TimeRed = 25 });
+        //    Clusters.Add(new Cluster { ClusterId = Guid.NewGuid(), Location = "Test", TrafficLights = new ObservableCollection<TrafficLight>(newtrafficLights) });
 
-
+        //}
         private readonly ITrafficLightService _trafficService;
         public TrafficLightOverviewModel( ITrafficLightService trafficService ) {
 
