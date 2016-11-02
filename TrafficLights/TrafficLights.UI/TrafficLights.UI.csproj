@@ -103,12 +103,10 @@
     <Compile Include="Model\TrafficLight.cs" />
     <Compile Include="Services\ITrafficLightService.cs" />
     <Compile Include="Services\TrafficLightService.cs" />
-<<<<<<< HEAD
-    <Compile Include="ViewModel\TrafficLightOverviewModel.cs" />
-=======
+
+ <Compile Include="ViewModel\TrafficLightOverviewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\TrafficLightDetailViewModel.cs" />
->>>>>>> 0320773dad64142fa3c3560cafa280ba019024b5
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\TrafficLightOverviewPage.xaml.cs">
       <DependentUpon>TrafficLightOverviewPage.xaml</DependentUpon>
