@@ -101,7 +101,6 @@
     <Compile Include="Converters\StatusToColorConverter.cs" />
     <Compile Include="Converters\testclass.cs" />
     <Compile Include="Messages\ClusterGuidMessage.cs" />
-    <Compile Include="Messages\TrafficLightDetailMessage.cs" />
     <Compile Include="Model\Cluster.cs" />
     <Compile Include="Model\Direction.cs" />
     <Compile Include="Model\Maintenance.cs" />
@@ -110,6 +109,7 @@
     <Compile Include="Services\ITrafficLightService.cs" />
     <Compile Include="Services\NavigatorService.cs" />
     <Compile Include="Services\TrafficLightService.cs" />
+    <Compile Include="ViewModel\ClusterCreateViewModel.cs" />
     <Compile Include="ViewModel\MaintenanceCreateViewModel.cs" />
     <Compile Include="ViewModel\TempTrafficLightCreateVM.cs" />
     <Compile Include="ViewModel\TrafficLightOverviewModel.cs" />

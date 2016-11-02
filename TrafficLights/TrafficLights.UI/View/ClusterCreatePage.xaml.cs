@@ -22,9 +22,11 @@ namespace TrafficLights.UI.View
     /// </summary>
     public sealed partial class ClusterCreatePage : Page
     {
+        public ClusterCreateViewModel VM { get; set; }
         public ClusterCreatePage()
         {
             this.InitializeComponent();
+            VM = (ClusterCreateViewModel)DataContext;
         }
     }
 }
