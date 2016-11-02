@@ -5,13 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrafficLights.UI.Model;
+using TrafficLights.UI.Services;
 
 namespace TrafficLights.UI.ViewModel
 {
     public class TrafficLightCreateVM : ViewModelBase
     {
-        public TrafficLightCreateVM()
+        private readonly ITrafficLightService _trafficLightService;
+
+        public TrafficLightCreateVM(ITrafficLightService trafficLightService)
         {
+            _trafficLightService = trafficLightService;
+
             _newTrafficLight = new TrafficLight();
             _directions = new Dictionary<Direction, string>();
             foreach (var d in Enum.GetValues(typeof(Direction)))
@@ -30,7 +35,7 @@ namespace TrafficLights.UI.ViewModel
 
         private void AddTrafficLight()
         {
-            return;
+            _trafficLightService.InsertTrafficLight(_newTrafficLight);
         }
 
         private TrafficLight _newTrafficLight;

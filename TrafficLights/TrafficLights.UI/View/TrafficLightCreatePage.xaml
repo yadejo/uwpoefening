@@ -25,11 +25,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock
-                Grid.Row="0"
-                Grid.Column="0"
-                Text="Plaats" />
-            <TextBox Grid.Row="0" Grid.Column="1" />
+
 
             <TextBlock
                 Grid.Row="1"
@@ -60,6 +56,7 @@
                 Grid.Row="3"
                 Grid.Column="1"
                 InputScope="Number"
+                Text="{Binding NewTrafficLight.TimeGreen, Converter={StaticResource IntToStringConverter}, Mode=TwoWay}"
                 TextChanged="NumbersOnly" />
 
             <TextBlock
@@ -70,6 +67,7 @@
                 Grid.Row="4"
                 Grid.Column="1"
                 InputScope="Number"
+                Text="{Binding NewTrafficLight.TimeOrange, Converter={StaticResource IntToStringConverter}, Mode=TwoWay}"
                 TextChanged="NumbersOnly" />
 
             <TextBlock
@@ -80,6 +78,7 @@
                 Grid.Row="5"
                 Grid.Column="1"
                 InputScope="Number"
+                Text="{Binding NewTrafficLight.TimeRed, Converter={StaticResource IntToStringConverter}, Mode=TwoWay}"
                 TextChanged="NumbersOnly" />
 
             <TextBlock
