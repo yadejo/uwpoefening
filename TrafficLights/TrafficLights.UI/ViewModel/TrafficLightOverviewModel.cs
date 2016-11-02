@@ -23,9 +23,9 @@ namespace TrafficLights.UI.ViewModel {
             get { return _addTrafficLightToCluster ?? ( _addTrafficLightToCluster = new RelayCommand(AddTrafficLightWithCluster) ); }
         }
 
-        private ICommand _addTrafficLight;
-        public ICommand AddTrafficLight {
-            get { return _addTrafficLight ?? ( _addTrafficLight = new RelayCommand(AddNewTrafficLight) ); }
+        private ICommand _addCluster;
+        public ICommand AddCluster {
+            get { return _addCluster ?? (_addCluster = new RelayCommand(AddNewCluster) ); }
         }
 
         private ObservableCollection<Cluster> _clusters;
@@ -55,8 +55,8 @@ namespace TrafficLights.UI.ViewModel {
             _navigationService.NavigateTo("Create");
             
         }
-        public void AddNewTrafficLight() {
-            _navigationService.NavigateTo("Create");
+        public void AddNewCluster() {
+            _navigationService.NavigateTo("CreateCluster");
         }
     }
 }
