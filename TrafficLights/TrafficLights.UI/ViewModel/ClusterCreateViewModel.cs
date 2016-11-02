@@ -22,14 +22,14 @@ namespace TrafficLights.UI.ViewModel
 
         private void AddNewCluster()
         {
-            Cluster.ClusterId = Guid.NewGuid();
-            Cluster.TempTrafficLights = new System.Collections.ObjectModel.ObservableCollection<TemporaryTrafficLight>();
-            Cluster.TrafficLights = new System.Collections.ObjectModel.ObservableCollection<TrafficLight>();
-            _trafficLightService.CreateCluster(Cluster);
+            //Cluster.ClusterId = Guid.NewGuid();
+            //Cluster.TempTrafficLights = new System.Collections.ObjectModel.ObservableCollection<TemporaryTrafficLight>();
+            //Cluster.TrafficLights = new System.Collections.ObjectModel.ObservableCollection<TrafficLight>();
+            _trafficLightService.CreateCluster(NewCluster);
             _navigationService.NavigateTo("Overview");
         }
 
-        public Cluster Cluster
+        public Cluster NewCluster
         {
             get { return _cluster; }
             set { Set(ref _cluster, value); }
@@ -41,7 +41,11 @@ namespace TrafficLights.UI.ViewModel
         {
             _trafficLightService = trafficLightService;
             _navigationService = navigationService;
-            Cluster = new Cluster();
+            NewCluster = new Cluster();
+            NewCluster.ClusterId = Guid.NewGuid();
+            NewCluster.Location = "Location";
+            NewCluster.TempTrafficLights = new System.Collections.ObjectModel.ObservableCollection<TemporaryTrafficLight>();
+            NewCluster.TrafficLights = new System.Collections.ObjectModel.ObservableCollection<TrafficLight>();
         }
 
 

@@ -96,7 +96,6 @@ namespace TrafficLights.UI.Services {
         }
 
         public Cluster CreateCluster(Cluster cluster) {
-            cluster.ClusterId = Guid.NewGuid();
             _clusters.Add(cluster);
             return cluster;
         }

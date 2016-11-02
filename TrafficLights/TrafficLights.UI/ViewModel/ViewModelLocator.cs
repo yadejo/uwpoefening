@@ -38,6 +38,7 @@ namespace TrafficLights.UI.ViewModel {
             SimpleIoc.Default.Register<TrafficLightCreateVM>(true);
             SimpleIoc.Default.Register<MaintenanceCreateViewModel>(true);
             SimpleIoc.Default.Register<TempTrafficLightCreateVM>(true);
+            SimpleIoc.Default.Register<ClusterCreateViewModel>(true);
 
 
         }
@@ -76,6 +77,13 @@ namespace TrafficLights.UI.ViewModel {
             }
         }
 
+        public ClusterCreateViewModel ClusterCreateViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ClusterCreateViewModel>();
+            }
+        }
         public static void Cleanup() {
             // TODO Clear the ViewModels
         }

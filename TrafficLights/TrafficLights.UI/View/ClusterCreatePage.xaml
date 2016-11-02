@@ -10,8 +10,11 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock>Cluster</TextBlock>
-        <TextBox Text="{x:Bind VM.Cluster.Location, Mode=TwoWay}" />
-        <Button Command="{x:Bind VM.AddCluster}">
+        <TextBox
+            Height="50"
+            Margin="1,39,10,551"
+            Text="{x:Bind VM.NewCluster.Location, Mode=TwoWay}" />
+        <Button Margin="1,94,0,514" Command="{x:Bind VM.AddCluster, Mode=OneWay}">
             Save Cluster
         </Button>
     </Grid>
