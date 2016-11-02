@@ -42,7 +42,7 @@ namespace TrafficLights.UI.ViewModel {
 
         private void NavigateToDetail(Guid id)
         {
-            MessengerInstance.Send<TrafficLightDetailMessage>(new TrafficLightDetailMessage(id));
+            //MessengerInstance.Send<TrafficLightDetailMessage>(new TrafficLightDetailMessage(id));
             _navigationService.NavigateTo("Detail");
         }
 

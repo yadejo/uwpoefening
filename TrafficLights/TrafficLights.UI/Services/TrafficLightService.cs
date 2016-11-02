@@ -95,6 +95,12 @@ namespace TrafficLights.UI.Services {
 
         }
 
+        public Cluster CreateCluster(Cluster cluster) {
+            cluster.ClusterId = Guid.NewGuid();
+            _clusters.Add(cluster);
+            return cluster;
+        }
+
         public void DeleteTrafficLight( Guid trafficLightId ) {
             var cluster = _clusters.FirstOrDefault(c => c.TrafficLights.Any(t => t.TrafficLightId == trafficLightId));
 

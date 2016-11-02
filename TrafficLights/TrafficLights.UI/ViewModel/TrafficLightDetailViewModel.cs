@@ -85,10 +85,10 @@ namespace TrafficLights.UI.ViewModel {
             InitializeProperties();
             InitializeCommands();
 
-            MessengerInstance.Register<TrafficLightDetailMessage>(this, msg =>
-            {
-                this.TrafficLight = _trafficLightService.GetTrafficLightById(msg.TrafficLightId);
-            });
+            //MessengerInstance.Register<TrafficLightDetailMessage>(this, msg =>
+            //{
+            //    this.TrafficLight = _trafficLightService.GetTrafficLightById(msg.TrafficLightId);
+            //});
         }
 
 

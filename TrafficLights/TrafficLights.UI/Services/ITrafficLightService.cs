@@ -13,6 +13,7 @@ namespace TrafficLights.UI.Services {
         TrafficLight UpdateTrafficLight( TrafficLight trafficLight );
 
         Maintenance CreateMaintenance(Maintenance maintenance );
+        Cluster CreateCluster(Cluster cluster);
 
         IEnumerable<Maintenance> GetMaintenancesByTrafficLightId( Guid trafficLightId );
 
