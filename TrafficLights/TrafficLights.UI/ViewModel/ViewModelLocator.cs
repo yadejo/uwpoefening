@@ -69,6 +69,8 @@ namespace TrafficLights.UI.ViewModel {
         {
             var navigationService = new NavigationService();
             navigationService.Configure("Create", typeof(TrafficLightCreatePage));
+            navigationService.Configure("Overview", typeof(TrafficLightOverviewPage));
+            navigationService.Configure("Detail", typeof(TrafficLightDetailPage));
             return navigationService;
         }
         public static void Cleanup() {
