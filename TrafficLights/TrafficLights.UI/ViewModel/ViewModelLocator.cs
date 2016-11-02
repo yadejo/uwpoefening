@@ -29,12 +29,17 @@ namespace TrafficLights.UI.ViewModel {
             }
 
             SimpleIoc.Default.Register<TrafficLightOverviewModel>();
-         //    SimpleIoc.Default.Register<InventoryViewModel>();
-            //SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<TrafficLightDetailViewModel>();
             SimpleIoc.Default.Register<TrafficLightCreateVM>();
-            //    SimpleIoc.Default.Register<InventoryViewModel>();
+            SimpleIoc.Default.Register<MaintenanceCreateViewModel>();
         }
+
+        public MaintenanceCreateViewModel MaintenanceCreateViewModel {
+            get {
+                return ServiceLocator.Current.GetInstance<MaintenanceCreateViewModel>();
+            }
+        }
+
 
         public TrafficLightOverviewModel TrafficLightOverviewViewModel {
             get {
