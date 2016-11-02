@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="TrafficLights.UI.View.TrafficLightDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:TrafficLights.UI.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding TrafficLightDetailViewModel, Source={StaticResource Locator}}"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <ScrollViewer>
+
+            <StackPanel>
+
+                <TextBlock Text="Cluster" />
+
+
+                <TextBox IsEnabled="false" Text="Cluster Name" />
+
+                <TextBlock>Placed on</TextBlock>
+
+                <TextBox IsEnabled="false" Text="{x:Bind VM.TrafficLight.PlacedOn, Mode=OneWay}" />
+
+                <TextBlock>Status</TextBlock>
+
+                <ComboBox
+                    HorizontalAlignment="Stretch"
+                    ItemsSource="{Binding VM.TrafficLightStatuses}"
+                    SelectedItem="{Binding VM.TrafficLight.Status, Mode=TwoWay}" />
+
+                <CheckBox IsChecked="{x:Bind VM.TrafficLight.Placed, Converter={StaticResource BooleanToNullableConverter}, Mode=TwoWay}">Placed</CheckBox>
+
+
+                <TextBlock>Time Red</TextBlock>
+
+                <TextBox Text="{x:Bind VM.TrafficLight.TimeRed, Mode=TwoWay}" />
+
+                <TextBlock>Time Orange</TextBlock>
+
+                <TextBox Text="{x:Bind VM.TrafficLight.TimeOrange, Mode=TwoWay}" />
+
+                <TextBlock>Time Green</TextBlock>
+
+                <TextBox Text="{x:Bind VM.TrafficLight.TimeGreen, Mode=TwoWay}" />
+
+                <TextBlock>Uptime</TextBlock>
+
+                <TextBox Text="{x:Bind VM.TrafficLight.ActivatedOn, Mode=TwoWay}" />
+
+                <TextBlock>Direction</TextBlock>
+                <ComboBox
+                    HorizontalAlignment="Stretch"
+                    ItemsSource="{x:Bind VM.Directions}"
+                    SelectedItem="{Binding VM.TrafficLight.Direction, Mode=TwoWay}" />
+
+
+                <Button Command="{x:Bind VM.SaveChangesCommand, Mode=OneWay}">Save Changes</Button>
+            </StackPanel>
+
+        </ScrollViewer>
+    </Grid>
+</Page>
