@@ -113,7 +113,7 @@
         <DatePicker
             Grid.Row="8"
             Grid.Column="1"
-            Date="{Binding NewTrafficLight.EndDate}" />
+            Date="{Binding NewTrafficLight.EndDate, Mode=TwoWay}" />
 
         <TextBlock
             Grid.Row="9"
