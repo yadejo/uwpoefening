@@ -29,7 +29,7 @@ namespace TrafficLights.UI.ViewModel {
 
                 SimpleIoc.Default.Register<ITrafficLightService,TrafficLightService>();
             }
-            var navigationService = this.CreateNavigationService();
+            var navigationService = NavigatorService.CreateNavigationService();
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 
             SimpleIoc.Default.Register<TrafficLightOverviewModel>();
@@ -77,14 +77,6 @@ namespace TrafficLights.UI.ViewModel {
             get {
                 return ServiceLocator.Current.GetInstance<TrafficLightDetailViewModel>();
             }
-        }
-        private INavigationService CreateNavigationService()
-        {
-            var navigationService = new NavigationService();
-            navigationService.Configure("Create", typeof(TrafficLightCreatePage));
-            navigationService.Configure("Overview", typeof(TrafficLightOverviewPage));
-            navigationService.Configure("Detail", typeof(TrafficLightDetailPage));
-            return navigationService;
         }
         public static void Cleanup() {
             // TODO Clear the ViewModels

@@ -107,6 +107,7 @@
     <Compile Include="Model\TemporaryTrafficLight.cs" />
     <Compile Include="Model\TrafficLight.cs" />
     <Compile Include="Services\ITrafficLightService.cs" />
+    <Compile Include="Services\NavigatorService.cs" />
     <Compile Include="Services\TrafficLightService.cs" />
     <Compile Include="ViewModel\MaintenanceCreateViewModel.cs" />
     <Compile Include="ViewModel\TempTrafficLightCreateVM.cs" />
