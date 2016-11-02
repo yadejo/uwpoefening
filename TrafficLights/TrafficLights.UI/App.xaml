@@ -5,4 +5,12 @@
     xmlns:local="using:TrafficLights.UI"
     RequestedTheme="Light">
 
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <vm:ViewModelLocator xmlns:vm="using:TrafficLights.UI.ViewModel" x:Key="Locator" />
+
+        </ResourceDictionary>
+    </Application.Resources>
+
 </Application>
