@@ -12,6 +12,7 @@
             <vm:ViewModelLocator xmlns:vm="using:TrafficLights.UI.ViewModel" x:Key="Locator" />
             <converters:BooleanToNullableConverter x:Key="BooleanToNullableConverter" />
             <converters:IntToStringConverter x:Key="IntToStringConverter" />
+            <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         </ResourceDictionary>
     </Application.Resources>
 

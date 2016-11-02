@@ -31,6 +31,15 @@ namespace TrafficLights.UI.Model {
             set { Set(ref _trafficLights,value); }
         }
 
+        private ObservableCollection<TemporaryTrafficLight> _tempTrafficLights;
+
+        public ObservableCollection<TemporaryTrafficLight> TempTrafficLights
+        {
+            get { return _tempTrafficLights; }
+            set { Set(ref _tempTrafficLights, value); }
+        }
+
+
 
 
 

@@ -20,6 +20,8 @@ namespace TrafficLights.UI.Services {
 
         TrafficLight InsertTrafficLight(Guid clusterId,TrafficLight trafficLight);
 
+        TrafficLight InsertTempTrafficLight(Guid clusterId, TemporaryTrafficLight trafficLight);
+
         IEnumerable<Cluster> GetAllClusters();
 
     }

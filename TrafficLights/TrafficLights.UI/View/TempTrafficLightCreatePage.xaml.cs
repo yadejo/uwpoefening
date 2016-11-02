@@ -20,9 +20,9 @@ namespace TrafficLights.UI.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class TrafficLightCreatePage : Page
+    public sealed partial class TempTrafficLightCreatePage : Page
     {
-        public TrafficLightCreatePage()
+        public TempTrafficLightCreatePage()
         {
             this.InitializeComponent();
         }
@@ -32,11 +32,10 @@ namespace TrafficLights.UI.View
             var tb = (TextBox)sender;
 
             int x;
-            if(!int.TryParse(tb.Text, out x))
+            if (!int.TryParse(tb.Text, out x))
             {
                 tb.Text = "";
             }
         }
-
     }
 }

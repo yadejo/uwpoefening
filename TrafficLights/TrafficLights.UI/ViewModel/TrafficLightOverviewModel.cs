@@ -8,7 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TrafficLights.UI.Model;
+
+using TrafficLights.UI.View;
+
 using TrafficLights.UI.Services;
+using GalaSoft.MvvmLight.Views;
 
 namespace TrafficLights.UI.ViewModel {
 
@@ -30,11 +34,12 @@ namespace TrafficLights.UI.ViewModel {
             get { return _clusters; }
             set { Set(ref _clusters,value); }
         }
-
         private readonly ITrafficLightService _trafficService;
-        public TrafficLightOverviewModel( ITrafficLightService trafficService ) {
+        private INavigationService _navigationService;
+        public TrafficLightOverviewModel( ITrafficLightService trafficService, INavigationService navigationService ) {
 
             _trafficService = trafficService;
+            _navigationService = navigationService;
 
             InitializeProperties();
 
@@ -42,13 +47,16 @@ namespace TrafficLights.UI.ViewModel {
 
         private void InitializeProperties() {
             Clusters = new ObservableCollection<Cluster>(_trafficService.GetAllClusters());
+
         }
 
         public void AddTrafficLightWithCluster() {
 
+            _navigationService.NavigateTo("Create");
+            
         }
         public void AddNewTrafficLight() {
-
+            _navigationService.NavigateTo("Create");
         }
     }
 }
