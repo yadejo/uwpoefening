@@ -10,15 +10,15 @@ using TrafficLights.UI.Services;
 
 namespace TrafficLights.UI.ViewModel
 {
-    public class TrafficLightCreateVM : ViewModelBase
+    public class TempTrafficLightCreateVM : ViewModelBase
     {
         private readonly ITrafficLightService _trafficLightService;
         private Guid _clusterId;
-        public TrafficLightCreateVM(ITrafficLightService trafficLightService)
+        public TempTrafficLightCreateVM(ITrafficLightService trafficLightService)
         {
             _trafficLightService = trafficLightService;
 
-            _newTrafficLight = new TrafficLight();
+            _newTrafficLight = new TemporaryTrafficLight();
             _directions = new Dictionary<Direction, string>();
             foreach (var d in Enum.GetValues(typeof(Direction)))
             {
@@ -41,12 +41,11 @@ namespace TrafficLights.UI.ViewModel
 
         private void AddTrafficLight()
         {
-            if (_newTrafficLight.Placed) _newTrafficLight.PlacedOn = DateTimeOffset.Now;
-            _trafficLightService.InsertTrafficLight(this._clusterId,_newTrafficLight);
+            //_trafficLightService.InsertTrafficLight(this._clusterId, _newTrafficLight);
         }
 
-        private TrafficLight _newTrafficLight;
-        public TrafficLight NewTrafficLight
+        private TemporaryTrafficLight _newTrafficLight;
+        public TemporaryTrafficLight NewTrafficLight
         {
             get { return _newTrafficLight; }
             set { Set(ref _newTrafficLight, value); }
@@ -56,7 +55,8 @@ namespace TrafficLights.UI.ViewModel
 
         public Dictionary<Direction, string> Directions
         {
-            get {
+            get
+            {
                 return _directions;
             }
         }
@@ -66,7 +66,7 @@ namespace TrafficLights.UI.ViewModel
         public Dictionary<TrafficLightStatus, string> Statuses
         {
             get { return _statuses; }
-            
+
         }
 
         private GalaSoft.MvvmLight.Command.RelayCommand _addButtonClickCommand;
@@ -74,11 +74,8 @@ namespace TrafficLights.UI.ViewModel
         public GalaSoft.MvvmLight.Command.RelayCommand AddButtonClickCommand
         {
             get { return _addButtonClickCommand; }
-            
+
         }
-
-
-
 
     }
 }

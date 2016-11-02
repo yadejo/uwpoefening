@@ -1,15 +1,19 @@
 ﻿<Page
-    x:Class="TrafficLights.UI.View.TrafficLightCreatePage"
+    x:Class="TrafficLights.UI.View.TempTrafficLightCreatePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:TrafficLights.UI.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    DataContext="{Binding TrafficLightVM, Source={StaticResource Locator}}"
+    DataContext="{Binding TempTrafficLightCreateVM, Source={StaticResource Locator}}"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -35,7 +39,7 @@
             Grid.Column="1"
             DisplayMemberPath="Value"
             ItemsSource="{Binding Statuses}"
-            SelectedValue="{Binding NewTrafficLight.Status, Mode=TwoWay}"
+            SelectedValue="{Binding NewTrafficLight.Statuses, Mode=TwoWay}"
             SelectedValuePath="Key" />
 
         <TextBlock
@@ -92,8 +96,48 @@
             SelectedValue="{Binding NewTrafficLight.Direction, Mode=TwoWay}"
             SelectedValuePath="Key" />
 
-        <Button
+        <TextBlock
             Grid.Row="7"
+            Grid.Column="0"
+            Text="Reden" />
+        <TextBox
+            Grid.Row="7"
+            Grid.Column="1"
+            Height="100"
+            Text="{Binding NewTrafficLight.Reason, Mode=TwoWay}" />
+
+        <TextBlock
+            Grid.Row="8"
+            Grid.Column="0"
+            Text="Eind datum" />
+        <DatePicker
+            Grid.Row="8"
+            Grid.Column="1"
+            Date="{Binding NewTrafficLight.EndDate}" />
+
+        <TextBlock
+            Grid.Row="9"
+            Grid.Column="0"
+            Text="Verlengd" />
+        <CheckBox
+            Grid.Row="9"
+            Grid.Column="1"
+            IsChecked="{Binding NewTrafficLight.IsExtended, Mode=TwoWay}" />
+
+        <TextBlock
+            Grid.Row="10"
+            Grid.Column="0"
+            Text="Reden verlenging"
+            Visibility="{Binding NewTrafficLight.IsExtended, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}" />
+        <TextBox
+            Grid.Row="10"
+            Grid.Column="1"
+            Height="100"
+            Text="{Binding NewTrafficLight.ExtensionReason, Mode=TwoWay}"
+            Visibility="{Binding NewTrafficLight.IsExtended, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}" />
+
+        <Button
+            Grid.Row="15"
             Grid.Column="0"
             Command="{Binding AddButtonClickCommand}"
             Content="Toevoegen" />

@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BooleanToNullableConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\IntToStringConverter.cs" />
     <Compile Include="Converters\StatusToColorConverter.cs" />
     <Compile Include="Messages\ClusterGuidMessage.cs" />
@@ -106,10 +107,14 @@
     <Compile Include="Model\TrafficLight.cs" />
     <Compile Include="Services\ITrafficLightService.cs" />
     <Compile Include="Services\TrafficLightService.cs" />
+    <Compile Include="ViewModel\TempTrafficLightCreateVM.cs" />
     <Compile Include="ViewModel\TrafficLightOverviewModel.cs" />
     <Compile Include="ViewModel\TrafficLightCreateVM.cs" />
     <Compile Include="ViewModel\TrafficLightDetailViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\TempTrafficLightCreatePage.xaml.cs">
+      <DependentUpon>TempTrafficLightCreatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TrafficLightOverviewPage.xaml.cs">
       <DependentUpon>TrafficLightOverviewPage.xaml</DependentUpon>
     </Compile>
@@ -142,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\TempTrafficLightCreatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TrafficLightOverviewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
