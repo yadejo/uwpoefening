@@ -24,10 +24,14 @@ namespace TrafficLights.UI.ViewModel {
             get { return _addTrafficLightToCluster ?? ( _addTrafficLightToCluster = new RelayCommand<Guid>((id) => AddTrafficLightWithCluster(id)) ); }
         }
 
-        private ICommand _addTrafficLight;
-        public ICommand AddTrafficLight {
-            get { return _addTrafficLight ?? (_addTrafficLight = new RelayCommand(AddNewTrafficLight)); }
+
+        private ICommand _addCluster;
+
+        public ICommand AddCluster {
+           
+            get { return _addCluster ?? ( _addCluster = new RelayCommand(() => AddNewCluster())); }
         }
+
 
         private ICommand _goToDetailView;
 
