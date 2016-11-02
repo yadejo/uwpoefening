@@ -30,12 +30,20 @@ namespace TrafficLights.UI.ViewModel {
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
-         //    SimpleIoc.Default.Register<InventoryViewModel>();
+            SimpleIoc.Default.Register<TrafficLightCreateVM>();
+            //    SimpleIoc.Default.Register<InventoryViewModel>();
         }
 
         public MainViewModel MainViewModel {
             get {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public TrafficLightCreateVM TrafficLightVM {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<TrafficLightCreateVM>();
             }
         }
 

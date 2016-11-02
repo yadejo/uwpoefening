@@ -1,0 +1,104 @@
+﻿<Page
+    x:Class="TrafficLights.UI.View.TrafficLightCreatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:TrafficLights.UI.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding TrafficLightVM, Source={StaticResource Locator}}"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Plaats" />
+            <TextBox Grid.Row="0" Grid.Column="1" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Status" />
+            <ComboBox
+                Grid.Row="1"
+                Grid.Column="1"
+                DisplayMemberPath="Value"
+                ItemsSource="{Binding Statuses}"
+                SelectedValue="{Binding NewTrafficLight.Status, Mode=TwoWay}"
+                SelectedValuePath="Key" />
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Geplaatst" />
+            <CheckBox
+                Grid.Row="2"
+                Grid.Column="1"
+                IsChecked="{Binding NewTrafficLight.Placed, Mode=TwoWay}" />
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Tijd groen" />
+            <TextBox
+                Grid.Row="3"
+                Grid.Column="1"
+                InputScope="Number"
+                TextChanged="NumbersOnly" />
+
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="0"
+                Text="Tijd oranje" />
+            <TextBox
+                Grid.Row="4"
+                Grid.Column="1"
+                InputScope="Number"
+                TextChanged="NumbersOnly" />
+
+            <TextBlock
+                Grid.Row="5"
+                Grid.Column="0"
+                Text="Tijd rood" />
+            <TextBox
+                Grid.Row="5"
+                Grid.Column="1"
+                InputScope="Number"
+                TextChanged="NumbersOnly" />
+
+            <TextBlock
+                Grid.Row="6"
+                Grid.Column="0"
+                Text="Richting" />
+            <ComboBox
+                Grid.Row="6"
+                Grid.Column="1"
+                DisplayMemberPath="Value"
+                ItemsSource="{Binding Directions}"
+                SelectedValue="{Binding NewTrafficLight.Direction, Mode=TwoWay}"
+                SelectedValuePath="Key" />
+
+            <Button
+                Grid.Row="7"
+                Grid.Column="0"
+                Command="{Binding AddButtonClickCommand}"
+                Content="Toevoegen" />
+        </Grid>
+    </Grid>
+</Page>
