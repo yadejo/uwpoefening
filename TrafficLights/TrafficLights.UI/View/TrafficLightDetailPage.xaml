@@ -14,11 +14,6 @@
 
             <StackPanel>
 
-                <TextBlock Text="Cluster" />
-
-
-                <TextBox IsEnabled="false" Text="Cluster Name" />
-
                 <TextBlock>Placed on</TextBlock>
 
                 <TextBox IsEnabled="false" Text="{x:Bind VM.TrafficLight.PlacedOn, Mode=OneWay}" />
@@ -27,8 +22,8 @@
 
                 <ComboBox
                     HorizontalAlignment="Stretch"
-                    ItemsSource="{Binding VM.TrafficLightStatuses}"
-                    SelectedItem="{Binding VM.TrafficLight.Status, Mode=TwoWay}" />
+                    ItemsSource="{Binding TrafficLightStatuses}"
+                    SelectedItem="{Binding TrafficLight.Status, Mode=TwoWay}" />
 
                 <CheckBox IsChecked="{x:Bind VM.TrafficLight.Placed, Converter={StaticResource BooleanToNullableConverter}, Mode=TwoWay}">Placed</CheckBox>
 
@@ -52,11 +47,24 @@
                 <TextBlock>Direction</TextBlock>
                 <ComboBox
                     HorizontalAlignment="Stretch"
-                    ItemsSource="{x:Bind VM.Directions}"
-                    SelectedItem="{Binding VM.TrafficLight.Direction, Mode=TwoWay}" />
+                    ItemsSource="{Binding Directions}"
+                    SelectedItem="{Binding TrafficLight.Direction, Mode=TwoWay}" />
 
 
-                <Button Command="{x:Bind VM.SaveChangesCommand, Mode=OneWay}">Save Changes</Button>
+                <Button Command="{x:Bind VM.SaveChangesCommand, Mode=OneWay}">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Save" />
+                        <TextBlock>Save Changes</TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Button Command="{x:Bind VM.DeleteCommand, Mode=OneWay}">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Delete" />
+                        <TextBlock>Delete</TextBlock>
+                    </StackPanel>
+
+                </Button>
             </StackPanel>
 
         </ScrollViewer>
