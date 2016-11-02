@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrafficLights.UI.Services;
 
 namespace TrafficLights.UI.ViewModel {
     public class ViewModelLocator {
@@ -25,7 +26,7 @@ namespace TrafficLights.UI.ViewModel {
                 //SimpleIoc.Default.Register<IDataService,DataService>();
 
 
-               // SimpleIoc.Default.Register<IShopService,ShopService>();
+               SimpleIoc.Default.Register<ITrafficLightService,TrafficLightService>();
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
