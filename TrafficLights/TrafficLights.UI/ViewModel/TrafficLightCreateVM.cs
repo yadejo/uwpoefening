@@ -4,14 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrafficLights.UI.Messages;
 using TrafficLights.UI.Model;
+using TrafficLights.UI.Services;
 
 namespace TrafficLights.UI.ViewModel
 {
     public class TrafficLightCreateVM : ViewModelBase
     {
-        public TrafficLightCreateVM()
+        private readonly ITrafficLightService _trafficLightService;
+        private Guid _clusterId;
+        public TrafficLightCreateVM(ITrafficLightService trafficLightService)
         {
+            _trafficLightService = trafficLightService;
+
             _newTrafficLight = new TrafficLight();
             _directions = new Dictionary<Direction, string>();
             foreach (var d in Enum.GetValues(typeof(Direction)))
@@ -26,11 +32,16 @@ namespace TrafficLights.UI.ViewModel
             }
 
             _addButtonClickCommand = new GalaSoft.MvvmLight.Command.RelayCommand(AddTrafficLight);
+
+            MessengerInstance.Register<ClusterGuidMessage>(this, (msg) =>
+            {
+                this._clusterId = msg.ClusterId;
+            });
         }
 
         private void AddTrafficLight()
         {
-            return;
+            _trafficLightService.InsertTrafficLight(Guid.NewGuid(),_newTrafficLight);
         }
 
         private TrafficLight _newTrafficLight;

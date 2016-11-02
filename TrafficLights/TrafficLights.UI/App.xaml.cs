@@ -65,6 +65,8 @@ namespace TrafficLights.UI
                 Window.Current.Content = rootFrame;
             }
 
+
+
             if (e.PrelaunchActivated == false)
             {
                 if (rootFrame.Content == null)
@@ -72,7 +74,7 @@ namespace TrafficLights.UI
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(View.MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(View.TrafficLightOverviewPage), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
