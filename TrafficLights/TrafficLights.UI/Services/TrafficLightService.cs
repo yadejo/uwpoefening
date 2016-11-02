@@ -19,6 +19,7 @@ namespace TrafficLights.UI.Services {
 
 
             var cluster1 = new Cluster {
+                ClusterId = Guid.NewGuid(),
                 Location = "Ghent",
                 TrafficLights = new ObservableCollection<TrafficLight>(),
                 TempTrafficLights = new ObservableCollection<TemporaryTrafficLight>()
@@ -39,6 +40,8 @@ namespace TrafficLights.UI.Services {
             }
 
             var cluster2 = new Cluster {
+                ClusterId = Guid.NewGuid(),
+
                 Location = "Brussel",
                 TrafficLights = new ObservableCollection<TrafficLight>(),
                 TempTrafficLights = new ObservableCollection<TemporaryTrafficLight>()

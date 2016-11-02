@@ -18,7 +18,11 @@ namespace TrafficLights.UI.Converters {
         }
 
         public object ConvertBack( object value,Type targetType,object parameter,string language ) {
-            throw new NotImplementedException();
+            var x = (Nullable<bool>)value;
+
+            if (x == null || x == false) return false;
+
+            return true;
         }
     }
 }

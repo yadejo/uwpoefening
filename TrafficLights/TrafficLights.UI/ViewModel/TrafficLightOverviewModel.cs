@@ -13,6 +13,7 @@ using TrafficLights.UI.View;
 
 using TrafficLights.UI.Services;
 using GalaSoft.MvvmLight.Views;
+using TrafficLights.UI.Messages;
 
 namespace TrafficLights.UI.ViewModel {
 
@@ -20,12 +21,25 @@ namespace TrafficLights.UI.ViewModel {
     public class TrafficLightOverviewModel : ViewModelBase {
         private ICommand _addTrafficLightToCluster;
         public ICommand AddTrafficLightToCluster {
-            get { return _addTrafficLightToCluster ?? ( _addTrafficLightToCluster = new RelayCommand(AddTrafficLightWithCluster) ); }
+            get { return _addTrafficLightToCluster ?? ( _addTrafficLightToCluster = new RelayCommand<Guid>((id) => AddTrafficLightWithCluster(id)) ); }
         }
 
         private ICommand _addTrafficLight;
         public ICommand AddTrafficLight {
-            get { return _addTrafficLight ?? ( _addTrafficLight = new RelayCommand(AddNewTrafficLight) ); }
+            get { return _addTrafficLight ?? (_addTrafficLight = new RelayCommand(AddNewTrafficLight)); }
+        }
+
+        private ICommand _goToDetailView;
+
+        public ICommand GoToDetailView
+        {
+            get { return _goToDetailView ?? (_goToDetailView = new RelayCommand<Guid>((id) => NavigateToDetail(id))); }
+        }
+
+        private void NavigateToDetail(Guid id)
+        {
+            MessengerInstance.Send<TrafficLightDetailMessage>(new TrafficLightDetailMessage(id));
+            _navigationService.NavigateTo("Detail");
         }
 
         private ObservableCollection<Cluster> _clusters;
@@ -50,8 +64,8 @@ namespace TrafficLights.UI.ViewModel {
 
         }
 
-        public void AddTrafficLightWithCluster() {
-
+        public void AddTrafficLightWithCluster(Guid clusterId) {
+            MessengerInstance.Send<ClusterGuidMessage>(new ClusterGuidMessage(clusterId));
             _navigationService.NavigateTo("Create");
             
         }

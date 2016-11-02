@@ -34,9 +34,9 @@ namespace TrafficLights.UI.ViewModel {
 
             SimpleIoc.Default.Register<TrafficLightOverviewModel>();
          
-            SimpleIoc.Default.Register<TrafficLightDetailViewModel>();
-            SimpleIoc.Default.Register<TrafficLightCreateVM>();
-            SimpleIoc.Default.Register<TempTrafficLightCreateVM>();
+            SimpleIoc.Default.Register<TrafficLightDetailViewModel>(true);
+            SimpleIoc.Default.Register<TrafficLightCreateVM>(true);
+            SimpleIoc.Default.Register<TempTrafficLightCreateVM>(true);
         }
 
         public TrafficLightOverviewModel TrafficLightOverviewViewModel {
@@ -69,6 +69,8 @@ namespace TrafficLights.UI.ViewModel {
         {
             var navigationService = new NavigationService();
             navigationService.Configure("Create", typeof(TrafficLightCreatePage));
+            navigationService.Configure("Overview", typeof(TrafficLightOverviewPage));
+            navigationService.Configure("Detail", typeof(TrafficLightDetailPage));
             return navigationService;
         }
         public static void Cleanup() {
