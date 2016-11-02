@@ -24,16 +24,21 @@
                 <DataTemplate x:DataType="model:Cluster">
                     <StackPanel>
                         <TextBlock Text="{x:Bind Location}" />
-                        <Button Command="{Binding TrafficLightOverviewViewModel.AddTrafficLightToCluster, Source={StaticResource Locator}}" Content="Add TrafficLight to this Cluster" />
+                        <Button
+                            Command="{Binding TrafficLightOverviewViewModel.AddTrafficLightToCluster, Source={StaticResource Locator}}"
+                            CommandParameter="{x:Bind ClusterId}"
+                            Content="Add TrafficLight to this Cluster" />
                         <ListBox ItemsSource="{x:Bind TrafficLights}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate x:DataType="model:TrafficLight">
-                                    <StackPanel>
-                                        <TextBlock Text="{x:Bind Status}" />
-                                        <TextBlock Text="{x:Bind Direction}" />
-                                        <TextBlock Text="{x:Bind Placed}" />
-                                        <TextBlock Text="{x:Bind ActivatedOn}" />
-                                    </StackPanel>
+                                    <Button Command="{Binding TrafficLightOverviewViewModel.GoToDetailView, Source={StaticResource Locator}}" CommandParameter="{x:Bind TrafficLightId}">
+                                        <StackPanel>
+                                            <TextBlock Text="{x:Bind Status}" />
+                                            <TextBlock Text="{x:Bind Direction}" />
+                                            <TextBlock Text="{x:Bind Placed}" />
+                                            <TextBlock Text="{x:Bind ActivatedOn}" />
+                                        </StackPanel>
+                                    </Button>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>

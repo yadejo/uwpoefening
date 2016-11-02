@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrafficLights.UI.Messages;
 using TrafficLights.UI.Model;
 using TrafficLights.UI.Services;
 
@@ -26,13 +27,17 @@ namespace TrafficLights.UI.ViewModel {
             set {
 
                 Set(ref _trafficLight,value);
+                if (_trafficLight != null)
+                {
+                    if (TrafficLightStatuses != null)
+                    {
+                        _trafficLight.Status = TrafficLightStatuses.FirstOrDefault(s => s.ToString() == _trafficLight.Status.ToString());
+                    }
 
-                if(TrafficLightStatuses != null) {
-                    _trafficLight.Status = TrafficLightStatuses.FirstOrDefault(s => s.ToString() == _trafficLight.Status.ToString());
-                }
-
-                if(Directions != null) {
-                    _trafficLight.Direction = Directions.FirstOrDefault(s => s.ToString() == _trafficLight.Direction.ToString());
+                    if (Directions != null)
+                    {
+                        _trafficLight.Direction = Directions.FirstOrDefault(s => s.ToString() == _trafficLight.Direction.ToString());
+                    }
                 }
             }
         }
@@ -79,6 +84,11 @@ namespace TrafficLights.UI.ViewModel {
 
             InitializeProperties();
             InitializeCommands();
+
+            MessengerInstance.Register<TrafficLightDetailMessage>(this, msg =>
+            {
+                this.TrafficLight = _trafficLightService.GetTrafficLightById(msg.TrafficLightId);
+            });
         }
 
 
