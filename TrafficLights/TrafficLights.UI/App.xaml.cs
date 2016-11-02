@@ -65,6 +65,8 @@ namespace TrafficLights.UI
                 Window.Current.Content = rootFrame;
             }
 
+
+
             if (e.PrelaunchActivated == false)
             {
                 if (rootFrame.Content == null)

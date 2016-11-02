@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Converters\BooleanToNullableConverter.cs" />
     <Compile Include="Converters\IntToStringConverter.cs" />
+    <Compile Include="Converters\StatusToColorConverter.cs" />
     <Compile Include="Model\Cluster.cs" />
     <Compile Include="Model\Direction.cs" />
     <Compile Include="Model\Maintenance.cs" />
@@ -104,8 +105,7 @@
     <Compile Include="Model\TrafficLight.cs" />
     <Compile Include="Services\ITrafficLightService.cs" />
     <Compile Include="Services\TrafficLightService.cs" />
-
- <Compile Include="ViewModel\TrafficLightOverviewModel.cs" />
+    <Compile Include="ViewModel\TrafficLightOverviewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\TrafficLightCreateVM.cs" />
     <Compile Include="ViewModel\TrafficLightDetailViewModel.cs" />
