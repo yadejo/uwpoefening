@@ -102,10 +102,10 @@
     <Compile Include="Model\TrafficLight.cs" />
     <Compile Include="Services\ITrafficLightService.cs" />
     <Compile Include="Services\TrafficLightService.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\TrafficLightOverviewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="View\TrafficLightOverviewPage.xaml.cs">
+      <DependentUpon>TrafficLightOverviewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -130,7 +130,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\MainPage.xaml">
+    <Page Include="View\TrafficLightOverviewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
