@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrafficLights.UI.Messages;
 using TrafficLights.UI.Model;
 using TrafficLights.UI.Services;
 
@@ -12,7 +13,7 @@ namespace TrafficLights.UI.ViewModel
     public class TrafficLightCreateVM : ViewModelBase
     {
         private readonly ITrafficLightService _trafficLightService;
-
+        private Guid _clusterId;
         public TrafficLightCreateVM(ITrafficLightService trafficLightService)
         {
             _trafficLightService = trafficLightService;
@@ -31,6 +32,11 @@ namespace TrafficLights.UI.ViewModel
             }
 
             _addButtonClickCommand = new GalaSoft.MvvmLight.Command.RelayCommand(AddTrafficLight);
+
+            MessengerInstance.Register<ClusterGuidMessage>(this, (msg) =>
+            {
+                this._clusterId = msg.ClusterId;
+            });
         }
 
         private void AddTrafficLight()
