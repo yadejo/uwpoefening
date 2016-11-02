@@ -41,7 +41,8 @@ namespace TrafficLights.UI.ViewModel
 
         private void AddTrafficLight()
         {
-            //_trafficLightService.InsertTrafficLight(this._clusterId, _newTrafficLight);
+            if (_newTrafficLight.Placed) _newTrafficLight.PlacedOn = DateTimeOffset.Now;
+            _trafficLightService.InsertTempTrafficLight(this._clusterId, _newTrafficLight);
         }
 
         private TemporaryTrafficLight _newTrafficLight;

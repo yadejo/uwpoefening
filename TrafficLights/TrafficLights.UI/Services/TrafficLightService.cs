@@ -15,11 +15,13 @@ namespace TrafficLights.UI.Services {
 
         public TrafficLightService() {
             _clusters = new List<Cluster>();
+            
 
 
             var cluster1 = new Cluster {
                 Location = "Ghent",
-                TrafficLights = new ObservableCollection<TrafficLight>()
+                TrafficLights = new ObservableCollection<TrafficLight>(),
+                TempTrafficLights = new ObservableCollection<TemporaryTrafficLight>()
             };
 
             for(int i=0 ;i<4 ; i++) {
@@ -38,7 +40,8 @@ namespace TrafficLights.UI.Services {
 
             var cluster2 = new Cluster {
                 Location = "Brussel",
-                TrafficLights = new ObservableCollection<TrafficLight>()
+                TrafficLights = new ObservableCollection<TrafficLight>(),
+                TempTrafficLights = new ObservableCollection<TemporaryTrafficLight>()
             };
 
             for(int i = 0 ; i < 4 ; i++) {
@@ -76,6 +79,13 @@ namespace TrafficLights.UI.Services {
 
             return _clusters.SelectMany(c => c.TrafficLights).FirstOrDefault(tl => tl.TrafficLightId == trafficLightId);
 
+        }
+
+        public TrafficLight InsertTempTrafficLight(Guid clusterId, TemporaryTrafficLight trafficLight)
+        {
+            var cluster = _clusters.FirstOrDefault(c => c.ClusterId == clusterId);
+            cluster.TempTrafficLights.Add(trafficLight);
+            return trafficLight;
         }
 
         public TrafficLight InsertTrafficLight(Guid clusterId,TrafficLight trafficLight)
